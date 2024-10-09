@@ -8,10 +8,7 @@ const PORT = process.env.PORT;
 import bodyParser from "body-parser";
 
 app.use(
-  cors({
-    origin: "http://localhost:5173",
-    optionsSuccessStatus: 200,
-  })
+  cors()
 );
 
 app.use(bodyParser.urlencoded({ extended: false }));

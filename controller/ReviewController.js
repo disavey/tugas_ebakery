@@ -22,8 +22,9 @@ export const createReview = async (req, res) => {
     const review = await Review.create({
       comment,
       tanggal_review: reviewDate,
-      CakeId: CakeId,
-      UserId: UserId,
+      UserId : UserId,
+      CakeId : CakeId
+     
     });
     res.status(201).json({
       message: "Review created succesfully",
@@ -52,6 +53,8 @@ export const getReviewById = async (req, res) => {
   try {
     const { id } = req.query;
     const review = await Review.findByPk(id, {
+      // comment,
+      // tanggal_review: reviewDate,
       include: [
         {
           model: Cake,
