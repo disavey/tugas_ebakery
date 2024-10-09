@@ -23,6 +23,10 @@ const Cake = db.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     tableName: "cake",

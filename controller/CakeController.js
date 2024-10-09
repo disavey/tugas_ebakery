@@ -2,8 +2,8 @@ import Cake from "../models/CakeModels.js";
 import Chef from "../models/ChefModels.js";
 
 export const createCake = async (req, res) => {
-  const { name, price, description, ChefId } = req.body;
-  const cake = await Cake.create({ name, price, description, ChefId });
+  const { name, price, description, imageUrl, ChefId } = req.body;
+  const cake = await Cake.create({ name, price, description, imageUrl, ChefId });
 
   res.status(201).json(cake);
 };
@@ -36,9 +36,9 @@ export const getCakeById = async (req, res) => {
 export const updateCake = async (req, res) => {
   try {
     const { id } = req.query;
-    const { name, price, description, ChefId } = req.body;
+    const { name, price, description, imageUrl, ChefId } = req.body;
     const [updated] = await Cake.update(
-      { name, price, description, ChefId: ChefId },
+      { name, price, description, imageUrl, ChefId: ChefId },
       { where: { id } }
     );
     if (updated) {
